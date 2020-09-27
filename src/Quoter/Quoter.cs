@@ -115,7 +115,7 @@ namespace RoslynQuoter
             switch (nodeKind)
             {
                 case NodeKind.CompilationUnit:
-                    return SyntaxFactory.ParseCompilationUnit(sourceText);
+                    return SyntaxFactory.ParseCompilationUnit(sourceText, options: new CSharpParseOptions(LanguageVersion.CSharp9));
                 case NodeKind.MemberDeclaration:
                     return SyntaxFactory.ParseMemberDeclaration(sourceText);
                 case NodeKind.Statement:
@@ -1795,6 +1795,9 @@ namespace RoslynQuoter
         "IsUnboundGenericName",
         "IsUnmanaged",
         "IsVar",
+        "IsNotNull",
+        "IsNint",
+        "IsNuint",
         "Kind",
         "Language",
         "Parent",
